@@ -74,26 +74,48 @@ The animation is built from **real photo cutouts** — lettuce and meat photogra
 - Possible parallax on food photography sections
 - Mascots as subtle recurring visual thread
 
-## Photography Brief
+## Photography Brief & Shot List
 
-The shoot team needs to deliver:
+The shoot team needs to deliver the following. Products on table: sauces, sides, smoked meat, lettuce wraps.
 
-### Lifestyle Shots
-1. **Hero gathering shot** — people eating together, warm energy, diverse group of 25-38 year olds (Section 1)
-2. **Candid people moments** — post-eating, laughing, real interactions, not posed (Section 4)
-3. **Closing/brand moment** — something clean for the Ember intro (Section 5)
+### Shot 1 — Hero Table Spread (Section 1)
+**The Gathering Table — wide angle**
+- Overhead or 45-degree angle of a full table spread
+- Meat platters, sides in bowls, sauces lined up, lettuce wraps being assembled
+- 4-6 people's hands reaching in, passing plates
+- Warm lighting, not flash — think golden hour or warm indoor
+- The table should feel abundant but not messy
+- Sauces should be visible on the table even if not the focus — builds familiarity before they hit the product site
 
-### Product Cutout Assets (for scroll animation)
-4. **Lettuce leaf** — single leaf, shot on clean/white background, top-down, high-res for animation
-5. **Meat portion** — smoked meat, shot on clean/white background, top-down, matching angle to lettuce
-6. **Person eating / mouth open** — for the footer drop moment, could be a fun candid shot
+### Shot 2 — Candid People Moments (Section 4)
+**3-4 setups needed:**
+- **The laugh** — someone mid-laugh with food in hand, others reacting
+- **The pass** — two people sharing a plate or passing a wrap across the table
+- **The lean-back** — post-eating, satisfied, still talking, plates half-finished
+- **The build** — someone assembling a lettuce wrap (meat + sauce), hands in focus
 
-### Direction
-- Halal context: no alcohol in any shots
-- Warm lighting, nothing clinical or overly styled
+### Shot 3 — Product Cutouts (Section 3 & 6 — scroll animation)
+**Shot on clean white/light background, top-down:**
+- Single lettuce leaf — flat, fully open, high-res
+- Smoked meat portion — sitting naturally, matching scale to the lettuce
+- A wrapped lettuce + meat combo — for the "wrap" animation at footer
+- Individual sauces in small bowls — top-down, for potential secondary use
+
+### Shot 4 — Brand / Closing (Section 5 & 6)
+- **The aftermath** — a table post-meal, plates scattered, people still there, warm and lived-in
+- Or **the mascot moment** — if incorporating Bear & Dino physically (plushies, stickers on the table, printed on packaging visible in shot)
+
+### General Direction
+- **No alcohol** in any frame
+- **Diverse group, 25-35 age range**, casual but put-together
+- **Warm tones** — golden, amber, not blue/cool
+- **Nothing posed** — if it looks like a stock photo, reshoot it
+- Shoot **horizontal for desktop, vertical crops for mobile** — or shoot wide enough to crop both ways
 - The host should be visible but not centered — the gathering is the star
-- Diverse group, casual but elevated — not a backyard cookout, not a formal dinner, somewhere in between
-- The food should look abundant and communal — platters, sharing, hands reaching
+- Casual but elevated — not a backyard cookout, not a formal dinner, somewhere in between
+
+### Priority
+The most important shots are the **hero table spread** (Shot 1) and the **product cutouts** (Shot 3) — those carry the whole page. Everything else supports the mood.
 
 ## Technical Notes
 
