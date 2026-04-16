@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ember — Storytelling Page Mockup v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f9cade;
+    color: #671f2b;
+    overflow-x: hidden;
+  }
+
+  /* ---- SECTION 1: THE HOOK ---- */
+  .section-hook {
+    padding: 40px 48px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .ember-mascot {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    background: #671f2b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #f9cade;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hook-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(48px, 8vw, 102px);
+    text-transform: uppercase;
+    color: #671f2b;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .hook-sub {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #671f2b;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.5;
+  }
+
+  /* Hero image */
+  .hero-image {
+    width: 100%;
+    max-width: 1824px;
+    margin: 0 auto;
+    aspect-ratio: 2/1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #3a1520;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    border-radius: 20px;
+  }
+
+  .hero-placeholder-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 2px dashed rgba(255,255,255,0.3);
+    border-radius: 20px;
+    margin: 20px;
+  }
+
+  .scroll-cue {
+    padding: 40px 0;
+    text-align: center;
+    opacity: 0.4;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ---- SECTION 2: POPUP ---- */
+  .section-popup {
+    padding: 60px 48px 80px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .popup-card {
+    background: rgba(103,31,43,0.95);
+    border-radius: 24px;
+    padding: 48px 40px;
+    max-width: 560px;
+    width: 100%;
+    text-align: center;
+    color: #f9cade;
+  }
+
+  .popup-card h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+
+  .popup-card p {
+    font-size: 15px;
+    opacity: 0.7;
+    margin-bottom: 32px;
+  }
+
+  .occasion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .occasion-item {
+    background: rgba(249,202,222,0.1);
+    border: 1px solid rgba(249,202,222,0.2);
+    border-radius: 14px;
+    padding: 24px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .occasion-item:hover {
+    background: rgba(249,202,222,0.2);
+    border-color: rgba(249,202,222,0.4);
+  }
+
+  .occasion-item .emoji { font-size: 28px; margin-bottom: 8px; }
+  .occasion-item .name { font-size: 15px; font-weight: 600; color: #fff; }
+
+  /* ---- SECTION 3: THE UNWRAP (USP) ---- */
+  .section-usp {
+    background: #ee6000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 48px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+  }
+
+  .lettuce-visual {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin-bottom: 40px;
+  }
+
+  .lettuce-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px dashed rgba(255,255,255,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .lettuce-layer {
+    position: absolute;
+    width: 240px;
+    height: 70px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .lettuce-leaf {
+    background: #5a9a3e;
+    top: 80px;
+    color: #fff;
+  }
+
+  .meat-piece {
+    background: #8b4513;
+    bottom: 80px;
+    color: #fff;
+  }
+
+  .anim-label {
+    font-size: 12px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.8;
+  }
+
+  .usp-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .usp-sub {
+    font-size: 20px;
+    opacity: 0.85;
+    max-width: 450px;
+  }
+
+  .usp-note {
+    margin-top: 40px;
+    padding: 16px 24px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 12px;
+    font-size: 13px;
+    opacity: 0.6;
+    max-width: 500px;
+    line-height: 1.5;
+  }
+
+  /* ---- SECTION 4: THE MOMENT ---- */
+  .section-moment {
+    background: #f9cade;
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  .moment-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+
+  .moment-photo {
+    aspect-ratio: 1;
+    background: rgba(103,31,43,0.06);
+    border: 2px dashed rgba(103,31,43,0.12);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(103,31,43,0.3);
+    padding: 20px;
+  }
+
+  .moment-photo.wide {
+    grid-column: span 2;
+    aspect-ratio: 2/1;
+  }
+
+  .moment-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: #671f2b;
+  }
+
+  .moment-sub {
+    font-size: 20px;
+    color: #671f2b;
+    opacity: 0.6;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  /* ---- SECTION 5: THE EMBER WAY ---- */
+  .section-brand {
+    background: #671f2b;
+    padding: 100px 48px;
+    text-align: center;
+    color: #f9cade;
+  }
+
+  .brand-label {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 32px;
+  }
+
+  .brand-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .brand-sub {
+    font-size: 18px;
+    opacity: 0.7;
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+  }
+
+  .mascots {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+  }
+
+  .mascot-item {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(249,202,222,0.1);
+    border: 2px dashed rgba(249,202,222,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    color: #f9cade;
+  }
+
+  /* ---- SECTION 6: FOOTER / WRAP & DROP ---- */
+  .section-footer {
+    background: #ee6000;
+    padding: 100px 48px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+  }
+
+  .wrap-anim {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 3px dashed rgba(255,255,255,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 48px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    line-height: 2;
+  }
+
+  .footer-headline {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 20px 56px;
+    background: #671f2b;
+    color: #fff;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 60px;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .cta-button:hover { transform: scale(1.05); }
+
+  .footer-links {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    font-size: 13px;
+    opacity: 0.4;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ---- ANNOTATIONS ---- */
+  .section-note {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(0,0,0,0.25);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    z-index: 10;
+  }
+
+  section { position: relative; }
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 — THE HOOK -->
+<section class="section-hook">
+  <span class="section-note" style="color:#671f2b; background:rgba(103,31,43,0.1);">Section 1 — Hero</span>
+  <div class="ember-mascot">EMBER</div>
+  <h1 class="hook-headline">Follow the smoke.</h1>
+  <p class="hook-sub">More meats, more sides, more reasons to host. Every great night starts with someone saying "come over."</p>
+  <div class="hero-image">
+    <div class="hero-placeholder-text">Full-screen lifestyle photo — people gathering, eating, warm energy</div>
+  </div>
+  <div class="scroll-cue">scroll ↓</div>
+</section>
+
+<!-- SECTION 2 — THE POPUP -->
+<section class="section-popup">
+  <span class="section-note" style="color:#671f2b; background:rgba(103,31,43,0.1);">Section 2 — Popup overlay</span>
+  <div class="popup-card">
+    <h2>What are you planning?</h2>
+    <p>Pick one. We'll set the vibe.</p>
+    <div class="occasion-grid">
+      <div class="occasion-item">
+        <div class="emoji">🎂</div>
+        <div class="name">Birthday</div>
+      </div>
+      <div class="occasion-item">
+        <div class="emoji">🌙</div>
+        <div class="name">Friday Night</div>
+      </div>
+      <div class="occasion-item">
+        <div class="emoji">👨‍👩‍👧‍👦</div>
+        <div class="name">Family Dinner</div>
+      </div>
+      <div class="occasion-item">
+        <div class="emoji">🎉</div>
+        <div class="name">Big Party</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — THE UNWRAP (USP) -->
+<section class="section-usp">
+  <span class="section-note">Section 3 — The Unwrap (USP animation)</span>
+  <div class="lettuce-visual">
+    <div class="lettuce-circle">
+      <div class="lettuce-layer lettuce-leaf">Lettuce</div>
+      <div class="anim-label">Scroll animation<br>Lettuce unwraps<br>Meat lands on top</div>
+      <div class="lettuce-layer meat-piece">Smoked Meat</div>
+    </div>
+  </div>
+  <h2 class="usp-headline">Fresh. Smoky.<br>Always together.</h2>
+  <p class="usp-sub">The lettuce + meat combo that started it all.</p>
+  <div class="usp-note">
+    📸 Real photo cutouts animated via scroll position. Lettuce leaf opens flat, meat lands on top. Layered PNGs with GSAP ScrollTrigger.
+  </div>
+</section>
+
+<!-- SECTION 4 — THE MOMENT -->
+<section class="section-moment">
+  <span class="section-note" style="color:#671f2b; background:rgba(103,31,43,0.1);">Section 4 — The Moment</span>
+  <div class="moment-photos">
+    <div class="moment-photo wide">Candid wide shot — people around table, post-eating vibes, warm lighting</div>
+    <div class="moment-photo">Laughing, leaning back</div>
+    <div class="moment-photo">Conversations, real moments</div>
+  </div>
+  <h2 class="moment-headline">This is what it's<br>really about.</h2>
+  <p class="moment-sub">Not the food. Not the setup. The people you chose to share it with.</p>
+</section>
+
+<!-- SECTION 5 — THE EMBER WAY -->
+<section class="section-brand">
+  <span class="section-note">Section 5 — Brand</span>
+  <div class="brand-label">Ember Smokery</div>
+  <h2 class="brand-headline">Halal. Smoked with care. Made for sharing.</h2>
+  <p class="brand-sub">We do the slow work so you can focus on what matters — your people around your table.</p>
+  <div class="mascots">
+    <div class="mascot-item">The<br>Bear</div>
+    <div class="mascot-item">The<br>Dino</div>
+  </div>
+</section>
+
+<!-- SECTION 6 — THE WRAP & DROP -->
+<section class="section-footer">
+  <span class="section-note">Section 6 — Footer / CTA</span>
+  <div class="wrap-anim">
+    Lettuce wraps<br>around meat<br>↓<br>Drops into<br>mouth
+  </div>
+  <h2 class="footer-headline">Ready to host?</h2>
+  <a href="https://embersmokery.co" class="cta-button">Order on Ember</a>
+  <div class="footer-links">
+    <span>Instagram</span>
+    <span>TikTok</span>
+    <span>embersmokery.co</span>
+  </div>
+</section>
+
+</body>
+</html>
